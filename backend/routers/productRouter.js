@@ -13,7 +13,24 @@ router.post('/add', (req, res) => {
         .catch((err) => {
             console.log(err);
             if (err.code === 11000) {
-                res.status(500).json({ message: 'Email already exists' });
+                res.status(500).json({ message: 'product already added' });
+            } else {
+                res.status(500).json({ message: 'Something went wrong' });
+            }
+        });
+
+});
+router.put('/updatebyid/:id', (req, res) => {
+    console.log(req.body);
+
+    new Model(req.body).save()
+        .then((result) => {
+            res.status(200).json(result);
+        })
+        .catch((err) => {
+            console.log(err);
+            if (err.code === 11000) {
+                res.status(500).json({ message: 'product already added' });
             } else {
                 res.status(500).json({ message: 'Something went wrong' });
             }
@@ -21,6 +38,18 @@ router.post('/add', (req, res) => {
 
 });
 
+router.get('/getall', (req, res) => {
+    Model.find()
+        .then((result) => {
+            res.status(200).json(result);
+
+        }).catch((err) => {
+
+            console.log(err);
+            res.status(500).json(err);
+
+        });
+})
 router.get('/getall', (req, res) => {
     Model.find()
         .then((result) => {
