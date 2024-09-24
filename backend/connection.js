@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url ="mongodb+srv://shubhammodi:9026@mern.acjco.mongodb.net/Agriculturerentalequipments?retryWrites=true&w=majority&appName=MERN"
+const url ="mongodb+srv://shubhammodi:8528@mern.acjco.mongodb.net/Agriculturerentalequipments?retryWrites=true&w=majority&appName=MERN"
 
 // connect to the database
 
